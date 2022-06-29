@@ -22,6 +22,7 @@
 - Clone this Repository
 
 ```bash
+
 git clone https://github.com/vivek-yamsani/Poll-booth.git
 ```
 
@@ -46,3 +47,22 @@ cd backend && npm run dev
 
 cd frontend && npm start
 ```
+
+### Using Docker && docker Compose
+
+- Clone the repo
+
+```bash
+
+git clone https://github.com/vivek-yamsani/Poll-booth.git
+```
+
+- add the env file according to the example
+
+- spin up docker containers
+
+```bash
+
+docker-compose up
+```
+

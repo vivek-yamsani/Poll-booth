@@ -5,6 +5,7 @@ import { useToast } from "@chakra-ui/react";
 function useAxios() {
   const { token } = useUserContext();
   const toast = useToast();
+  console.log("BaseUrl " + process.env.REACT_APP_BACKEND);
   const axiosInstance = axios.create({
     baseURL: process.env.REACT_APP_BACKEND,
     headers: {

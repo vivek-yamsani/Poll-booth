@@ -84,7 +84,7 @@ function RegisterForm() {
               <FormErrorMessage>
                 {errors.name && errors.name.message}
               </FormErrorMessage>
-              <FormLabel htmlFor="password">Password</FormLabel>
+              <FormLabel htmlFor="password">Email</FormLabel>
               <InputGroup w={"full"}>
                 <InputLeftElement
                   pointerEvents={"none"}
