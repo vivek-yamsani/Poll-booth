@@ -7,7 +7,6 @@ import { BrowserRouter } from "react-router-dom";
 import NavBar from "./components/NavBar";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-localStorage.setItem("chakra-ui-color-mode", "dark");
 root.render(
   <ChakraProvider colorMode={"dark"}>
     <BrowserRouter>

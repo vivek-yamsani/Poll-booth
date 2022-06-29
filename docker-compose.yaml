@@ -1,0 +1,41 @@
+version: "3.1"
+services:
+  database:
+    image: mysql
+    restart: always
+    env_file: ./.env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - ${DATABASE_PORT}:3306
+
+  backend:
+    env_file: ./.env
+    build:
+      context: ./backend
+      args:
+        DATABASE_URL: mysql://root:${MYSQL_PASSWORD}@database:3306/poll-booth?schema=public
+        PORT: 3000
+        JWT_SECRET: ${JWT_SECRET}
+      dockerfile: ./Dockerfile
+    depends_on:
+      - database
+    restart: always
+    ports:
+      - ${BACKEND_PORT}:3000
+      # for prisma studio
+      - "5555:5555"
+
+  frontend:
+    env_file: ./.env
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
+      args:
+        REACT_APP_BACKEND: http://localhost:${BACKEND_PORT}
+        PORT: ${REACT_PORT}
+    depends_on:
+      - backend
+    restart: always
+    ports:
+      - ${REACT_PORT}:${REACT_PORT}

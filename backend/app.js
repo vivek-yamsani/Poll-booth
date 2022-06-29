@@ -15,10 +15,10 @@ app.use("/auth", authRouter);
 app.use("/teams", verifyToken, teamRouter);
 app.use("/teams", verifyToken, pollRouter);
 
-app.use((req, res) => {
-  console.log(req.path, req.params, req.method);
-  // console.log(res);
-});
+// app.use((req, res,next) => {
+//   console.log(req.path, req.params, req.method);
+//   next();
+// });
 
 app.all("*", async (req, res) => {
   res.status(404).json({ message: "Resource not found!" });
