@@ -12,7 +12,7 @@ EXPOSE 5555
 
 ARG DATABASE_URL
 
-RUN rm .env
+RUN rm -f .env
 
 RUN echo "DATABASE_URL=${DATABASE_URL}" >> .env
 

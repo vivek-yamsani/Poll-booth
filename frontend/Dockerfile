@@ -4,7 +4,7 @@ COPY . /app/
 
 WORKDIR  /app
 
-RUN rm .env
+RUN rm -f .env
 
 ARG REACT_APP_BACKEND
 
